@@ -22,6 +22,36 @@
     self.window.rootViewController = [[UIViewController alloc] init];
     [self.window makeKeyAndVisible];
 
+    NSDictionary* dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                @"Petrov",@"lastName",
+                                @"Vasiliy",@"name",
+                                [NSNumber numberWithInt:25],@"age",
+                                nil];
+    
+    NSDictionary* dictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 @"Petrov",@"lastName",
+                                 @"Vasiliy",@"name",
+                                 [NSNumber numberWithInt:25],@"age",
+                                 nil];
+    
+    NSDictionary* dictionary3 = @{@"lastName":@"Petrov", @"name":@"Vasiliy", @"age":@25};
+    
+    NSInteger intNum = 25;
+    NSDictionary* dictionary4 = @{@"lastName":@"Petrov", @"name":@"Vasiliy", @"age":@(intNum)};
+    
+    NSLog(@"dict = %@, count = %d", dictionary, [dictionary count]);
+    
+    NSLog(@"name = %@, lastname = %@, age = %ld",
+          [dictionary4 objectForKey:@"name"],
+          [dictionary4 objectForKey:@"lastName"],
+          [[dictionary4 objectForKey:@"age"] integerValue]);
+    
+    for (NSString* key in [dictionary3 allKeys]) {
+        id obj = [dictionary3 objectForKey:key];
+        
+        NSLog(@"key = %@, value = %@", key, obj);
+    }
+    
     return YES;
 }
 
